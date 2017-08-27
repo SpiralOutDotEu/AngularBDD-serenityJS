@@ -8,7 +8,14 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "webdriver-update": "webdriver-manager update",
+    "protractor": "protractor ./protractor.conf.js",
+    "clean": "rimraf target",
+    "pretest": "serenity update",
+    "report": "serenity run",
+    "open-report": "opn target/site/serenity/index.html",
+    "e2e2": "failsafe clean pretest protractor report open-report"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +29,7 @@
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
     "core-js": "^2.4.1",
+    "open": "0.0.5",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
@@ -48,6 +56,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "npm-failsafe": "^0.2.1",
+    "opn-cli": "^3.1.0",
     "protractor": "^5.1.2",
     "rimraf": "^2.6.1",
     "serenity-cli": "^0.7.0",
