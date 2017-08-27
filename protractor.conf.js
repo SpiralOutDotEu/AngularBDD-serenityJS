@@ -1,28 +1,33 @@
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
-
-const { SpecReporter } = require('jasmine-spec-reporter');
+const crew = require('serenity-js/lib/stage_crew');
 
 exports.config = {
-  allScriptsTimeout: 11000,
-  specs: [
-    './e2e/**/*.e2e-spec.ts'
-  ],
+
   capabilities: {
     'browserName': 'chrome'
   },
+
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
-  framework: 'jasmine',
-  jasmineNodeOpts: {
-    showColors: true,
-    defaultTimeoutInterval: 30000,
-    print: function() {}
+  // Framework definition - tells Protractor to use Serenity/JS
+  framework: 'custom',
+  frameworkPath: require.resolve('serenity-js'),
+  specs: [ 'features/**/*.feature' ],
+
+  cucumberOpts: {
+    require:    [ 'features/**/step_definitions/*.ts' ], // loads step definitions
+    format:     'pretty',               // enable console output
+    compiler:   'ts:ts-node/register'   // interpret step definitions as TypeScript
   },
-  onPrepare() {
-    require('ts-node').register({
-      project: 'e2e/tsconfig.e2e.json'
-    });
-    jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+
+  serenity: {
+    crew:    [
+      crew.serenityBDDReporter(),
+      crew.photographer()
+    ],
+    dialect: 'cucumber',
+    stageCueTimeout: 30 * 1000   // up to 30 seconds by default
   }
+
 };
