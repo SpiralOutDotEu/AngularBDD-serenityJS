@@ -21,7 +21,7 @@ before_script:
 - npm install -g angular-cli
 - npm install -g karma
 - npm install
-- npm run webdriver-update
+- npm run webdriver-update 
 - ng serve
 
 script: npm run protractor
