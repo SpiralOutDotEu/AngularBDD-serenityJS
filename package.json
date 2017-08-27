@@ -15,7 +15,7 @@
     "pretest": "serenity update",
     "report": "serenity run",
     "open-report": "opn target/site/serenity/index.html",
-    "e2e2": "failsafe clean pretest protractor report open-report"
+    "bdd": "failsafe clean pretest protractor report open-report"
   },
   "private": true,
   "dependencies": {
