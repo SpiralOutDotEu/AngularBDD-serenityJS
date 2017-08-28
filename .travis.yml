@@ -15,19 +15,17 @@ apt:
 before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
-  before_script:
-  - "export DISPLAY=:99.0"
+  
+
+before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
   - rackup  # start a Web server
   - sleep 3 # give Web server some time to bind to sockets, etc
-  
-
-before_script:
-- npm install -g @angular/cli
-- npm install -g karma
-- npm install
-- npm run webdriver-update 
+  - npm install -g @angular/cli
+  - npm install -g karma
+  - npm install
+  - npm run webdriver-update 
 
  
 script: npm run protractor
