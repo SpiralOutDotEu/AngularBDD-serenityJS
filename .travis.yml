@@ -19,12 +19,10 @@ before_install:
  
 before_script:
   - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
   - npm install -g @angular/cli
   - npm install -g karma
   - npm install
-  - npm run webdriver-update   # start a Web server
-
+  - npm run webdriver-update
  
  
  
