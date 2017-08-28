@@ -1,5 +1,7 @@
 # AngularBDD
 
+[![Build Status](https://travis-ci.org/SpiralOutDotEu/AngularBDD.svg?branch=master)](https://travis-ci.org/SpiralOutDotEu/AngularBDD)
+
 Scope of this project is to extend test capabilities of an Angular app with BDD testing functionality using CucumberJS and SerenityJS.
 
 See below for [Running BDD end-to-end tests with Cucumber and Serenity](##running-bdd-endtoend-tests-with-cucumber-and-serenity)
