@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           key: AngularBDD-{{ .Branch }}-{{ checksum "package.json" }}
       - run: npm install
-      - run: npm install -g karma
+      - run: sudo npm install -g karma
       - run: npm run webdriver-update
       - save_cache:
           key: AngularBDD-{{ .Branch }}-{{ checksum "package.json" }}
