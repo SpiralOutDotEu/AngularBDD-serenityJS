@@ -18,7 +18,7 @@ export = function myStepDefinitions () {
 
   this.Then(/^I should see welcome message$/, function (callback) {
     let el = element(by.css('app-root h1')).getText();
-    return expect(el).to.eventually.equal("Welcome to appp!!").then(function () {
+    return expect(el).to.eventually.equal("Welcome to app!!").then(function () {
       callback();
     }).catch(function (err) {
       callback(err);
