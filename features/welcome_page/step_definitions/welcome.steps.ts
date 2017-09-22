@@ -8,13 +8,21 @@ const expect = chai.expect;
 export = function myStepDefinitions () {
 
   this.Given(/^I am on the homepage$/, function (callback) {
-    browser.get("/").then(callback());
+    browser.get("/").then(function () {
+      callback();
+    }).catch(function (err) {
+      callback(err);
+    });
   });
 
 
   this.Then(/^I should see welcome message$/, function (callback) {
     let el = element(by.css('app-root h1')).getText();
-    expect(el).to.eventually.equal("Welcome to app!!").then(callback());
+    return expect(el).to.eventually.equal("Welcome to appp!!").then(function () {
+      callback();
+    }).catch(function (err) {
+      callback(err);
+    });
   });
 
 };
