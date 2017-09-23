@@ -8,11 +8,7 @@ const expect = chai.expect;
 export = function myStepDefinitions () {
 
   this.Given(/^I am on the homepage$/, function (callback) {
-    browser.get("/").then(function () {
-      callback();
-    }).catch(function (err) {
-      callback(err);
-    });
+    browser.get("/").then(callback());
   });
 
 
