@@ -9,7 +9,7 @@ exports.config = {
   },
   
   allScriptsTimeout: 60000,
-  getPageTimeout: 60000
+  getPageTimeout: 60000,
   
   
   directConnect: true,
