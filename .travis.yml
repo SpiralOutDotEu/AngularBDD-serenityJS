@@ -23,10 +23,9 @@ before_script:
   - npm install -g karma
   - npm install
   - npm run webdriver-update
-  - npm run start
  
  
  
 script:
-   - npm run protractor
+   - npm run e2e -- --no-progress --config=protractor.conf.js
    - karma start karma.conf.js --single-run
